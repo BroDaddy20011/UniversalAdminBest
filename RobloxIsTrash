@@ -1,0 +1,24 @@
+local player = game:GetService("Players").LocalPlayer;
+local gui = Instance.new("ScreenGui");
+gui.Name = "FlashingStrobe";
+gui.Parent = player.PlayerGui;
+local frame = Instance.new("Frame");
+frame.BackgroundTransparency = 0;
+frame.BackgroundColor3 = Color3.new(1, 1, 1);
+frame.Size = UDim2.new(1, 0, 1, 0);
+frame.Parent = gui;
+local textLabel = Instance.new("TextLabel");
+textLabel.Text = "Stop Cheating Bitch ass Pussy";
+textLabel.Font = Enum.Font.GothamBold;
+textLabel.FontSize = Enum.FontSize.Size36;
+textLabel.TextColor3 = Color3.new(1, 1, 1);
+textLabel.BackgroundTransparency = 1;
+textLabel.Size = UDim2.new(1, 0, 1, 0);
+textLabel.Parent = frame;
+local function toggleStrobeEffect()
+	while true do
+		frame.BackgroundColor3 = Color3.new(math.random(), math.random(), math.random());
+		wait(0.1);
+	end
+end
+coroutine.wrap(toggleStrobeEffect)();
