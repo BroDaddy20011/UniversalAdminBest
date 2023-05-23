@@ -1,24 +1,47 @@
-local player = game:GetService("Players").LocalPlayer;
-local gui = Instance.new("ScreenGui");
-gui.Name = "FlashingStrobe";
-gui.Parent = player.PlayerGui;
-local frame = Instance.new("Frame");
-frame.BackgroundTransparency = 0;
-frame.BackgroundColor3 = Color3.new(1, 1, 1);
-frame.Size = UDim2.new(1, 0, 1, 0);
-frame.Parent = gui;
-local textLabel = Instance.new("TextLabel");
-textLabel.Text = "Stop Cheating Bitch ass Pussy";
-textLabel.Font = Enum.Font.GothamBold;
-textLabel.FontSize = Enum.FontSize.Size36;
-textLabel.TextColor3 = Color3.new(1, 1, 1);
-textLabel.BackgroundTransparency = 1;
-textLabel.Size = UDim2.new(1, 0, 1, 0);
-textLabel.Parent = frame;
+local player = game:GetService("Players").LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Name = "FlashingStrobe"
+gui.Parent = player.PlayerGui
+
+local frame = Instance.new("Frame")
+frame.BackgroundTransparency = 0
+frame.BackgroundColor3 = Color3.new(1, 1, 1)
+frame.Size = UDim2.new(1, 0, 1, 0)
+frame.Parent = gui
+
+local textLabel = Instance.new("TextLabel")
+textLabel.Text = "Stop Cheating Bitch ass Pussy"
+textLabel.Font = Enum.Font.GothamBold
+textLabel.FontSize = Enum.FontSize.Size36
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.BackgroundTransparency = 1
+textLabel.Size = UDim2.new(1, 0, 1, 0)
+textLabel.Parent = frame
+
+local soundId = "rbxassetid://6805032026" -- Replace with the ID of the audio you want to play
+
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Parent = frame
+
+local speed = 2 -- Default speed (normal speed)
+
 local function toggleStrobeEffect()
 	while true do
-		frame.BackgroundColor3 = Color3.new(math.random(), math.random(), math.random());
-		wait(0.1);
+		frame.BackgroundColor3 = Color3.new(math.random(), math.random(), math.random())
+		wait(0.1)
 	end
 end
-coroutine.wrap(toggleStrobeEffect)();
+
+coroutine.wrap(toggleStrobeEffect)()
+
+-- Function to change the audio speed
+local function changeAudioSpeed(newSpeed)
+	speed = newSpeed
+	sound.PlaybackSpeed = speed
+end
+
+-- Example usage: changeAudioSpeed(1.5) -- Change speed to 1.5x
+
+-- Play the audio
+sound:Play()
